@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=3 uid="uid://dakghqwfa52tr"]
+
+[ext_resource type="Script" path="res://CardBase.gd" id="1_jv2kh"]
+[ext_resource type="Texture2D" uid="uid://cw3mxete63m4r" path="res://game-stone-ui-frame-vector-260nw-2003937230.jpg" id="2_ykfp2"]
+[ext_resource type="Texture2D" uid="uid://bvylcog2t2hif" path="res://card_images/Thief.jpg" id="3_w4vna"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ymd4r"]
+
+[sub_resource type="FontVariation" id="FontVariation_xd5p7"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_rnllw"]
+
+[node name="CardBase" type="MarginContainer"]
+offset_right = 250.0
+offset_bottom = 350.0
+size_flags_stretch_ratio = 0.0
+script = ExtResource("1_jv2kh")
+
+[node name="Border" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_ymd4r")
+texture = ExtResource("2_ykfp2")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ImgArea" type="MarginContainer" parent="Border"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -46.5
+offset_right = 66.0
+offset_bottom = 113.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="CardNum" type="Label" parent="Border"]
+offset_left = 75.0
+offset_top = 20.0
+offset_right = 139.0
+offset_bottom = 43.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.705882, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_xd5p7")
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="CardName" type="Label" parent="Border"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.509
+anchor_bottom = 1.0
+offset_left = -46.0
+offset_top = -25.0
+offset_right = 48.02
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.282353, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 13
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="SpecialEffect" type="Label" parent="Border"]
+top_level = true
+z_index = 2
+offset_left = 32.0
+offset_top = 279.0
+offset_right = 216.0
+offset_bottom = 327.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+text = "4 or less"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Border"]
+z_index = 1
+offset_left = 56.0
+offset_top = 184.0
+offset_right = 160.0
+offset_bottom = 208.0
+texture = SubResource("CanvasTexture_rnllw")
+
+[node name="Card" type="Sprite2D" parent="."]
+position = Vector2(280, 96)
+scale = Vector2(1.101, 1)
+texture = ExtResource("3_w4vna")
+centered = false
