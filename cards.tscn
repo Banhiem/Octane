@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dakghqwfa52tr"]
+[gd_scene load_steps=6 format=3 uid="uid://dakghqwfa52tr"]
 
 [ext_resource type="Script" path="res://CardBase.gd" id="1_jv2kh"]
 [ext_resource type="Texture2D" uid="uid://cw3mxete63m4r" path="res://game-stone-ui-frame-vector-260nw-2003937230.jpg" id="2_ykfp2"]
@@ -7,8 +7,6 @@
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ymd4r"]
 
 [sub_resource type="FontVariation" id="FontVariation_xd5p7"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_rnllw"]
 
 [node name="CardBase" type="MarginContainer"]
 offset_right = 250.0
@@ -68,29 +66,18 @@ horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="SpecialEffect" type="Label" parent="Border"]
-top_level = true
 z_index = 2
-offset_left = 30.0
-offset_top = 280.0
-offset_right = 214.0
-offset_bottom = 328.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+offset_left = 15.0
+offset_top = 185.0
+offset_right = 199.0
+offset_bottom = 212.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0.505882, 1)
 text = "4 or less"
 horizontal_alignment = 1
 autowrap_mode = 3
 metadata/_edit_lock_ = true
-
-[node name="NinePatchRect" type="NinePatchRect" parent="Border"]
-modulate = Color(1, 1, 1, 0.211765)
-show_behind_parent = true
-z_index = 1
-offset_left = 56.0
-offset_top = 184.0
-offset_right = 160.0
-offset_bottom = 208.0
-texture = SubResource("CanvasTexture_rnllw")
 
 [node name="Card" type="Sprite2D" parent="."]
 position = Vector2(280, 96)

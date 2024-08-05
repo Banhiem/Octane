@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://ceu24qaqx5f0s"]
+
+[ext_resource type="Script" path="res://PlaySpace.gd" id="1_dpk7w"]
+
+[node name="PlaySpace" type="Node2D"]
+script = ExtResource("1_dpk7w")
+
+[node name="Cards" type="Node" parent="."]
+
+[node name="BackGround" type="Sprite2D" parent="."]
+
+[node name="CardPlace" type="MarginContainer" parent="."]
+offset_left = 142.0
+offset_top = 105.0
+offset_right = 182.0
+offset_bottom = 145.0

@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://cmfc8nbdpbymc"]
+[gd_scene load_steps=2 format=3 uid="uid://cmfc8nbdpbymc"]
+
+[ext_resource type="Script" path="res://Label.gd" id="1_c6tw5"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_c6tw5")
 
-[node name="Label" type="Label" parent="."]
+[node name="CardList" type="Label" parent="."]
 offset_left = 202.0
 offset_top = 263.0
 offset_right = 293.0

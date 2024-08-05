@@ -41,7 +41,7 @@ const DATA = {
 	Viking:
 		["Warrior", '3', 3,''],
 	Gladiator :
-		["Warrior", '4', 4, "4 or less"],
+		["Warrior", '4', 4, "4 or Less"],
 	Samurai :
 		["Warrior", '5', 5,''],
 	HopLite : 

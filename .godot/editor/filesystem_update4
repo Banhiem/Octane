@@ -2,3 +2,8 @@ res://Label.tscn
 res://card_data.tscn
 res://cards.tscn
 res://CardBase.gd
+res://PlaySpace.gd
+res://Label.gd
+res://play_space.tscn
+res://card_base.tscn
+res://card_data.gd

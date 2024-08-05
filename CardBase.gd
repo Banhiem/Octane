@@ -3,7 +3,7 @@ extends MarginContainer
 
 
 @onready var CardData = load("res://card_data.gd") 
-var Name = 'Centurion'
+var Name = 'Gladiator'
 @onready var CardInfo = CardData.DATA[CardData.get(Name)]
 @onready var Cardname = CardData.WarriorName[CardData.get(Name)]
 @onready var CardImg = str("res://card_images/",Name,".jpg")
@@ -23,4 +23,5 @@ func _ready():
 	$Card.position=$Border/ImgArea.position
 	$Border/CardNum.text=CardNum
 	$Border/CardName.text=CardName
+
 
