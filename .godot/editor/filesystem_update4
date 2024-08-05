@@ -1,3 +1,4 @@
 res://Label.tscn
 res://card_data.tscn
 res://cards.tscn
+res://CardBase.gd

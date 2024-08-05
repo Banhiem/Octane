@@ -3,7 +3,7 @@ extends MarginContainer
 
 
 @onready var CardData = load("res://card_data.gd") 
-var Name = 'Peasant'
+var Name = 'Centurion'
 @onready var CardInfo = CardData.DATA[CardData.get(Name)]
 @onready var Cardname = CardData.WarriorName[CardData.get(Name)]
 @onready var CardImg = str("res://card_images/",Name,".jpg")
