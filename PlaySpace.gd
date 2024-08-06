@@ -17,7 +17,7 @@ func _ready():
 func _input(event):
 	if Input.is_action_just_pressed("spacebar"):
 		var NewCard=Cards.instantiate()
-		CardSelected=randi() % DeckSize
+		CardSelected=randi_range(0, DeckSize)
 		NewCard.Name=PlayerHand.CardList[CardSelected]
 		NewCard.position=get_global_mouse_position()
 		$Cards.add_child(NewCard)
