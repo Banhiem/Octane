@@ -3,7 +3,7 @@ extends Node2D
 @onready var PlayerHand= load("res://Label.gd")
 @onready var Cards= load("res://cards.tscn")
 @onready var CardSelected=[]
-@onready var DeckSize=PlayerHand.CardList.size
+@onready var DeckSize=PlayerHand.CardList.size()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -21,4 +21,4 @@ func _input(event):
 		NewCard.Name=PlayerHand.CardList[CardSelected]
 		NewCard.position=get_global_mouse_position()
 		$Cards.add_child(NewCard)
-		print ("moo")
+
