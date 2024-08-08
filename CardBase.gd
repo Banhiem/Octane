@@ -15,14 +15,14 @@ var Name = 'Gladiator'
 
 func _ready():
 	$Border/SpecialEffect.text=SpecialEffect
-	var CardSize = self.size
-	var ImgArea= $Border/ImgArea.size
+	var CardSize = self.size/1.3
+	var ImgArea= $Border/ImgArea.size*1.3
 	$Border/SpecialEffect/Card.texture= load(CardImg)
 	$Border.scale *= CardSize/$Border.texture.get_size()   
 	$Border/SpecialEffect/Card.scale *= (ImgArea/$Border/SpecialEffect/Card.texture.get_size())*(CardSize/$Border.texture.get_size())
 	$Border/SpecialEffect/Card.position=$Border/ImgArea.position
 	$Border/CardNum.text=CardNum
 	$Border/CardName.text=CardName
-	print($Border/ImgArea.position)
+
 
 

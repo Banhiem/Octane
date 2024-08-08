@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ceu24qaqx5f0s"]
+[gd_scene load_steps=3 format=3 uid="uid://ceu24qaqx5f0s"]
 
 [ext_resource type="Script" path="res://PlaySpace.gd" id="1_dpk7w"]
+[ext_resource type="Texture2D" uid="uid://y3ew2aaor30r" path="res://card_images/TableTop.jpg" id="2_k4r31"]
 
 [node name="PlaySpace" type="Node2D"]
 script = ExtResource("1_dpk7w")
@@ -8,6 +9,24 @@ script = ExtResource("1_dpk7w")
 [node name="Cards" type="Node" parent="."]
 
 [node name="BackGround" type="Sprite2D" parent="."]
+position = Vector2(5, -1)
+texture = ExtResource("2_k4r31")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="TableTop" type="MarginContainer" parent="BackGround"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -584.0
+offset_top = -330.0
+offset_right = 1416.0
+offset_bottom = 670.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="CardPlace" type="MarginContainer" parent="."]
 offset_left = 142.0

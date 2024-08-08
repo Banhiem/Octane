@@ -4,9 +4,12 @@ extends Node2D
 @onready var Cards= load("res://cards.tscn")
 @onready var CardSelected=[]
 @onready var DeckSize=PlayerHand.CardList.size()
+@onready var ViewPort=$BackGround/TableTop.size
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$BackGround.scale *= ViewPort/$BackGround.texture.get_size()
+	$BackGround/TableTop.position=$BackGround.position
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

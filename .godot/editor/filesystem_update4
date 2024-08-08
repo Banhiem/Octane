@@ -1,5 +1,6 @@
+res://play_space.tscn
+res://PlaySpace.gd
 res://Label.tscn
 res://card_data.tscn
 res://cards.tscn
-res://play_space.tscn
 res://CardBase.gd
