@@ -24,5 +24,6 @@ func _input(event):
 		NewCard.Name=PlayerHand.CardList[CardSelected]
 		NewCard.position=get_global_mouse_position()
 		$Cards.add_child(NewCard)
+		NewCard.position=$CardPlace.position
 
 
