@@ -11,6 +11,15 @@ var Name = 'Gladiator'
 @onready var CardName = Cardname[0]
 @onready var SpecialEffect = CardInfo[3]
 
+enum{           #States of indivual cards
+	InHand,
+	InPile,                
+	OnTable,
+	FocusInHand
+}
+
+var state = InHand
+
 
 
 func _ready():
@@ -24,5 +33,16 @@ func _ready():
 	$Border/CardNum.text=CardNum
 	$Border/CardName.text=CardName
 
+
+func _physics_process(delta):
+	match state:
+		InHand:
+			pass
+		InPile:
+			pass
+		OnTable:
+			pass
+		FocusInHand:
+			pass
 
 
