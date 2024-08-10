@@ -24,7 +24,7 @@ func _input(event):
 		NewCard.Name=PlayerHand.CardList[CardSelected]
 		NewCard.position=$P1DownCards.position
 		$Cards.add_child(NewCard)
-		$P1DownCards.position += Vector2(150,0)
+		$P1DownCards.position += Vector2(180,0)
 		
 
 
