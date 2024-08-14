@@ -18,20 +18,21 @@ enum{           #States of indivual cards
 	FocusInHand
 }
 
-var state = InHand
+var state = OnTable
 
 
 
 func _ready():
 	$Border/SpecialEffect.text=SpecialEffect
-	var CardSize = self.size/1.3
+	var CardSize= self.get_size()/5
 	var ImgArea= $Border/ImgArea.size*1.3
-	$Border/SpecialEffect/Card.texture= load(CardImg)
+	$Border/SpecialEffect/Card.texture=load(CardImg)
 	$Border.scale *= CardSize/$Border.texture.get_size()   
 	$Border/SpecialEffect/Card.scale *= (ImgArea/$Border/SpecialEffect/Card.texture.get_size())*(CardSize/$Border.texture.get_size())
 	$Border/SpecialEffect/Card.position=$Border/ImgArea.position
 	$Border/CardNum.text=CardNum
 	$Border/CardName.text=CardName
+	$Focus.scale = CardSize/$Focus.size
 
 
 func _physics_process(delta):
@@ -46,3 +47,15 @@ func _physics_process(delta):
 			pass
 
 
+
+
+func _on_focus_mouse_entered():
+	match state:
+		InHand, OnTable, InPile:
+			state = FocusInHand
+
+
+func _on_focus_mouse_exited():
+	match state:
+		FocusInHand:
+			state = InHand
