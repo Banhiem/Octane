@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dakghqwfa52tr"]
+[gd_scene load_steps=6 format=3 uid="uid://dakghqwfa52tr"]
 
 [ext_resource type="Script" path="res://CardBase.gd" id="1_jv2kh"]
 [ext_resource type="Texture2D" uid="uid://cw3mxete63m4r" path="res://game-stone-ui-frame-vector-260nw-2003937230.jpg" id="2_ykfp2"]
 [ext_resource type="Texture2D" uid="uid://bvylcog2t2hif" path="res://card_images/Thief.jpg" id="3_w4vna"]
-[ext_resource type="Texture2D" uid="uid://ch3n18jkcwm7l" path="res://card_images/CardHover.jpg" id="4_cx6l1"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ymd4r"]
 
@@ -87,13 +86,14 @@ theme_override_fonts/font = SubResource("FontVariation_xd5p7")
 horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
-[node name="Focus" type="TextureButton" parent="."]
-layout_mode = 2
-texture_hover = ExtResource("4_cx6l1")
-
 [node name="CardSize" type="MarginContainer" parent="."]
 layout_mode = 2
 metadata/_edit_lock_ = true
+
+[node name="Focus" type="TextureButton" parent="."]
+layout_mode = 2
+texture_hover = ExtResource("2_ykfp2")
+ignore_texture_size = true
 
 [connection signal="mouse_entered" from="Focus" to="." method="_on_focus_mouse_entered"]
 [connection signal="mouse_exited" from="Focus" to="." method="_on_focus_mouse_exited"]
