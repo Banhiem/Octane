@@ -1,7 +1,5 @@
 extends MarginContainer
 
-
-
 @onready var CardData = load("res://card_data.gd")
 @onready var PlayerHand= load("res://Label.gd")
 @onready var CardSelected=[]
@@ -17,16 +15,15 @@ var CardSize= self.get_size()/2
 var CardScale= self.get_scale()
 @onready var Cards= load("res://cards.tscn")
 
-
 func CreateCard():
-	$Border/SpecialEffect.text=SpecialEffect
-	$Border/SpecialEffect/Card.texture=load(CardImg)
-	$Border.scale *= CardSize/$Border.texture.get_size()   
-	$Border/SpecialEffect/Card.scale *= (($Border/ImgArea.size/0.83)/$Border/SpecialEffect/Card.texture.get_size())*(CardSize/$Border.texture.get_size())
-	$Border/SpecialEffect/Card.position=$Border/ImgArea.position
-	$Border/CardNum.text=CardNum
-	$Border/CardName.text=CardName 
-	$Border/SpecialEffect/Card.scale *= CardSize/$Focus.texture_hover.get_size()*1.3
+	$FullCard/Border/SpecialEffect.text=SpecialEffect
+	$FullCard/Border/SpecialEffect/Card.texture=load(CardImg)
+	$FullCard/Border.scale *= CardSize/$FullCard/Border.texture.get_size()   
+	$FullCard/Border/SpecialEffect/Card.scale *= (($FullCard/Border/ImgArea.size/0.83)/$FullCard/Border/SpecialEffect/Card.texture.get_size())*(CardSize/$FullCard/Border.texture.get_size())
+	$FullCard/Border/SpecialEffect/Card.position=$FullCard/Border/ImgArea.position
+	$FullCard/Border/CardNum.text=CardNum
+	$FullCard/Border/CardName.text=CardName 
+	$FullCard/Border/SpecialEffect/Card.scale *= CardSize/$Focus.texture_hover.get_size()*1.3
 
 enum{           #States of indivual cards
 	InHand,
@@ -37,17 +34,16 @@ enum{           #States of indivual cards
 
 var state = InHand
 
-
-
 func _ready():
-	var ImgArea= $Border/ImgArea.size/0.83
-	$Border/SpecialEffect.text=SpecialEffect
-	$Border/SpecialEffect/Card.texture=load(CardImg)
-	$Border.scale *= CardSize/$Border.texture.get_size()   
-	$Border/SpecialEffect/Card.scale *= (ImgArea/$Border/SpecialEffect/Card.texture.get_size())*(CardSize/$Border.texture.get_size())
-	$Border/SpecialEffect/Card.position=$Border/ImgArea.position
-	$Border/CardNum.text=CardNum
-	$Border/CardName.text=CardName
+	var ImgArea= $FullCard/Border/ImgArea.size/0.83
+	
+	$FullCard/Border/SpecialEffect.text=SpecialEffect
+	$FullCard/Border/SpecialEffect/Card.texture=load(CardImg)
+	$FullCard/Border.scale *= CardSize/$FullCard/Border.texture.get_size()   
+	$FullCard/Border/SpecialEffect/Card.scale *= (ImgArea/$FullCard/Border/SpecialEffect/Card.texture.get_size())*(CardSize/$FullCard/Border.texture.get_size())
+	$FullCard/Border/SpecialEffect/Card.position=$FullCard/Border/ImgArea.position
+	$FullCard/Border/CardNum.text=CardNum
+	$FullCard/Border/CardName.text=CardName
 	await get_tree().process_frame
 	var NewCard=Cards.instantiate()
 	CardSelected=randi_range(0, DeckSize-1)
@@ -64,17 +60,13 @@ func _physics_process(delta):
 		OnTable:
 			pass
 		FocusInHand:
-			#$Border.scale *= (CardSize)/$Border.texture.get_size()
+			#$FullCard/Border.scale *= (CardSize)/$FullCard/Border.texture.get_size()
 			pass
-
-
-
 
 func _on_focus_mouse_entered():
 	match state:
 		InHand, OnTable, InPile:
 			state = FocusInHand
-
 
 func _on_focus_mouse_exited():
 	match state:
