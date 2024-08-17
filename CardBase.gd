@@ -48,7 +48,8 @@ func _ready():
 	var NewCard=Cards.instantiate()
 	CardSelected=randi_range(0, DeckSize-1)
 	$Focus.scale *= CardSize/$Focus.texture_hover.get_size()*1.5
-	#$Focus.texture_hover= CreateCard()
+	$FullCard.size = Vector2(200,300)
+
 
 
 func _physics_process(delta):

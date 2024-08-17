@@ -26,7 +26,8 @@ texture_hover = SubResource("ViewportTexture_muckv")
 ignore_texture_size = true
 
 [node name="FullCard" type="SubViewport" parent="."]
-size = Vector2i(500, 500)
+size = Vector2i(398, 612)
+size_2d_override_stretch = true
 
 [node name="Border" type="Sprite2D" parent="FullCard"]
 material = SubResource("CanvasItemMaterial_ymd4r")
@@ -106,8 +107,10 @@ offset_bottom = 612.0
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(513, 415)
+position = Vector2(1, 1)
 texture = SubResource("ViewportTexture_yu3e2")
+centered = false
+metadata/_edit_lock_ = true
 
 [connection signal="mouse_entered" from="Focus" to="." method="_on_focus_mouse_entered"]
 [connection signal="mouse_exited" from="Focus" to="." method="_on_focus_mouse_exited"]
