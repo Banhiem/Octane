@@ -36,7 +36,6 @@ var state = InHand
 
 func _ready():
 	var ImgArea= $FullCard/Border/ImgArea.size/0.83
-	
 	$FullCard/Border/SpecialEffect.text=SpecialEffect
 	$FullCard/Border/SpecialEffect/Card.texture=load(CardImg)
 	$FullCard/Border.scale *= CardSize/$FullCard/Border.texture.get_size()   
@@ -47,8 +46,9 @@ func _ready():
 	await get_tree().process_frame
 	var NewCard=Cards.instantiate()
 	CardSelected=randi_range(0, DeckSize-1)
-	$Focus.scale *= CardSize/$Focus.texture_hover.get_size()*1.5
+	$Focus.scale *= CardSize/$Focus.texture_hover.get_size()*3
 	$FullCard.size = Vector2(200,300)
+
 
 
 
@@ -61,8 +61,9 @@ func _physics_process(delta):
 		OnTable:
 			pass
 		FocusInHand:
-			#$FullCard/Border.scale *= (CardSize)/$FullCard/Border.texture.get_size()
-			pass
+			$Focus.scale = CardSize/$Focus.texture_hover.get_size()*1.5
+			$Focus.position = Vector2(0,-100)
+			#pass
 
 func _on_focus_mouse_entered():
 	match state:

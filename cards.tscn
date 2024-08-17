@@ -21,6 +21,7 @@ size_flags_stretch_ratio = 0.0
 script = ExtResource("1_jv2kh")
 
 [node name="Focus" type="TextureButton" parent="."]
+z_index = 1
 layout_mode = 2
 texture_hover = SubResource("ViewportTexture_muckv")
 ignore_texture_size = true

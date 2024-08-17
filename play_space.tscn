@@ -37,8 +37,8 @@ offset_bottom = 954.0
 metadata/_edit_lock_ = true
 
 [node name="P1DownCards" type="MarginContainer" parent="."]
-offset_left = 840.0
-offset_top = 795.0
-offset_right = 1599.0
-offset_bottom = 1036.0
+offset_left = 800.0
+offset_top = 800.0
+offset_right = 1559.0
+offset_bottom = 1040.0
 metadata/_edit_lock_ = true
