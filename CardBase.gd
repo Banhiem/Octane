@@ -11,19 +11,19 @@ var Name = 'Gladiator'
 @onready var CardNum = CardInfo[1]
 @onready var CardName = Cardname[0]
 @onready var SpecialEffect = CardInfo[3]
-var CardSize= self.get_size()/2
+var CardSize= self.get_size()/3
 var CardScale= self.get_scale()
 @onready var Cards= load("res://cards.tscn")
 
-func CreateCard():
-	$FullCard/Border/SpecialEffect.text=SpecialEffect
-	$FullCard/Border/SpecialEffect/Card.texture=load(CardImg)
-	$FullCard/Border.scale *= CardSize/$FullCard/Border.texture.get_size()   
-	$FullCard/Border/SpecialEffect/Card.scale *= (($FullCard/Border/ImgArea.size/0.83)/$FullCard/Border/SpecialEffect/Card.texture.get_size())*(CardSize/$FullCard/Border.texture.get_size())
-	$FullCard/Border/SpecialEffect/Card.position=$FullCard/Border/ImgArea.position
-	$FullCard/Border/CardNum.text=CardNum
-	$FullCard/Border/CardName.text=CardName 
-	$FullCard/Border/SpecialEffect/Card.scale *= CardSize/$Focus.texture_hover.get_size()*1.3
+#func CreateCard():
+	#$FullCard/Border/SpecialEffect.text=SpecialEffect
+	#$FullCard/Border/SpecialEffect/Card.texture=load(CardImg)
+	#$FullCard/Border.scale *= CardSize/$FullCard/Border.texture.get_size()   
+	#$FullCard/Border/SpecialEffect/Card.scale *= (($FullCard/Border/ImgArea.size/0.83)/$FullCard/Border/SpecialEffect/Card.texture.get_size())*(CardSize/$FullCard/Border.texture.get_size())
+	#$FullCard/Border/SpecialEffect/Card.position=$FullCard/Border/ImgArea.position
+	#$FullCard/Border/CardNum.text=CardNum
+	#$FullCard/Border/CardName.text=CardName 
+	#$FullCard/Border/SpecialEffect/Card.scale *= CardSize/$Focus.texture_hover.get_size()*1.3
 
 enum{           #States of indivual cards
 	InHand,
@@ -35,7 +35,7 @@ enum{           #States of indivual cards
 var state = InHand
 
 func _ready():
-	var ImgArea= $FullCard/Border/ImgArea.size/0.83
+	var ImgArea= $FullCard/Border/ImgArea.size*1.8
 	$FullCard/Border/SpecialEffect.text=SpecialEffect
 	$FullCard/Border/SpecialEffect/Card.texture=load(CardImg)
 	$FullCard/Border.scale *= CardSize/$FullCard/Border.texture.get_size()   
@@ -46,8 +46,7 @@ func _ready():
 	await get_tree().process_frame
 	var NewCard=Cards.instantiate()
 	CardSelected=randi_range(0, DeckSize-1)
-	#$Focus.scale *= CardSize/$Focus.texture_hover.get_size()*3
-	$FullCard.size = Vector2(200,300)
+	$FullCard.size = Vector2(130,200)
 
 
 
@@ -59,13 +58,11 @@ func _physics_process(delta):
 		InHand:
 			$Focus.scale = CardSize/$Focus.texture_hover.get_size()*0.5
 		InPile:
-			pass
+			$Focus.scale = CardSize/$Focus.texture_hover.get_size()*0.5
 		OnTable:
 			pass
 		FocusInHand:
 			$Focus.scale = CardSize/$Focus.texture_hover.get_size()*1.5
-			#$Focus.position = Vector2(0,-100)
-			#pass
 
 func _on_focus_mouse_entered():
 	match state:

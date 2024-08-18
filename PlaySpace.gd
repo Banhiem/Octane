@@ -7,7 +7,7 @@ extends Node2D
 @onready var ViewPort=$BackGround/TableTop.size
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$BackGround.scale *= (ViewPort/$BackGround.texture.get_size())*0.9
+	$BackGround.scale *= (ViewPort/$BackGround.texture.get_size())*0.75
 	$BackGround/TableTop.position=$BackGround.position
 	
 
@@ -22,9 +22,9 @@ func _input(event):
 		var NewCard=Cards.instantiate()
 		CardSelected=randi_range(0, DeckSize-1)
 		NewCard.Name=PlayerHand.CardList[CardSelected]
-		NewCard.position=$P1DownCards.position
+		NewCard.position=$CardPlace.position
 		$Cards.add_child(NewCard)
-		$P1DownCards.position += Vector2(190,0)
-		
+		$P1DownCards.position += Vector2(130,0)
+		$P1Hand.position += Vector2(130,0)
 
 
