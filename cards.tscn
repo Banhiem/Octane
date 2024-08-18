@@ -15,8 +15,8 @@ viewport_path = NodePath("FullCard")
 viewport_path = NodePath("FullCard")
 
 [node name="CardBase" type="MarginContainer"]
-offset_right = 398.0
-offset_bottom = 612.0
+offset_right = 400.0
+offset_bottom = 600.0
 size_flags_stretch_ratio = 0.0
 script = ExtResource("1_jv2kh")
 

@@ -1,8 +1,8 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1723934917
-CardBase.gd::GDScript::-1::1723910736::0::1::::<>MarginContainer<>::
+::res://::1723997544
+CardBase.gd::GDScript::-1::1723951005::0::1::::<>MarginContainer<>::
 cards.gd::GDScript::-1::1722814554::0::1::::<>MarginContainer<>::
-cards.tscn::PackedScene::7180283505721521555::1723911170::0::1::::<><>::res://CardBase.gd<>uid://cw3mxete63m4r::::res://game-stone-ui-frame-vector-260nw-2003937230.jpg<>uid://bvylcog2t2hif::::res://card_images/Thief.jpg
+cards.tscn::PackedScene::7180283505721521555::1723951359::0::1::::<><>::res://CardBase.gd<>uid://cw3mxete63m4r::::res://game-stone-ui-frame-vector-260nw-2003937230.jpg<>uid://bvylcog2t2hif::::res://card_images/Thief.jpg
 CardsDatabase.gd::GDScript::-1::1722137800::0::1::::<>RefCounted<>::
 card_base.tscn::PackedScene::2869656038160599702::1722830668::0::1::::<><>::res://CardBase.gd
 card_data.gd::GDScript::-1::1723173743::0::1::::<>RefCounted<>::
@@ -14,7 +14,7 @@ Knight.jpg::CompressedTexture2D::3552554346052327618::1722570531::1722814156::1:
 Label.gd::GDScript::-1::1723173743::0::1::::<>Node2D<>::
 Label.tscn::PackedScene::5625610429502059154::1723781628::0::1::::<><>::res://Label.gd
 PlaySpace.gd::GDScript::-1::1723911100::0::1::::<>Node2D<>::
-play_space.tscn::PackedScene::5096576284979954264::1723911170::0::1::::<><>::res://PlaySpace.gd<>uid://y3ew2aaor30r::::res://card_images/TableTop.jpg
+play_space.tscn::PackedScene::5096576284979954264::1723951359::0::1::::<><>::res://PlaySpace.gd<>uid://y3ew2aaor30r::::res://card_images/TableTop.jpg
 README.md::TextFile::-1::1722813849::0::1::::<><>::
 ::res://card_images/::1723603557
 CardBack.jpg::CompressedTexture2D::3976857128067829475::1723171694::1723171929::1::::<><>::

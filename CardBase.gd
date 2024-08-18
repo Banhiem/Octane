@@ -46,8 +46,10 @@ func _ready():
 	await get_tree().process_frame
 	var NewCard=Cards.instantiate()
 	CardSelected=randi_range(0, DeckSize-1)
-	$Focus.scale *= CardSize/$Focus.texture_hover.get_size()*3
+	#$Focus.scale *= CardSize/$Focus.texture_hover.get_size()*3
 	$FullCard.size = Vector2(200,300)
+
+
 
 
 
@@ -55,14 +57,14 @@ func _ready():
 func _physics_process(delta):
 	match state:
 		InHand:
-			pass
+			$Focus.scale = CardSize/$Focus.texture_hover.get_size()*0.5
 		InPile:
 			pass
 		OnTable:
 			pass
 		FocusInHand:
 			$Focus.scale = CardSize/$Focus.texture_hover.get_size()*1.5
-			$Focus.position = Vector2(0,-100)
+			#$Focus.position = Vector2(0,-100)
 			#pass
 
 func _on_focus_mouse_entered():
