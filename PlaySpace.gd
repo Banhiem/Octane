@@ -25,6 +25,6 @@ func _input(event):
 		NewCard.position=$CardPlace.position
 		$Cards.add_child(NewCard)
 		$P1DownCards.position += Vector2(130,0)
-		$P1Hand.position += Vector2(130,0)
+		$P1Hand.position += Vector2(130,0) 
 
 
