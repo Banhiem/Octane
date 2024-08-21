@@ -15,6 +15,8 @@ var CardSize= self.get_size()/3
 var CardScale= self.get_scale()
 @onready var Cards= load("res://cards.tscn")
 @onready var NewCard=Cards.instantiate()
+@onready var Space = load("res://play_space.tscn").instantiate()
+@onready var CardPos2=Space.get_node("P2DownCards")
 
 #func CreateCard():
 	#$FullCard/Border/SpecialEffect.text=SpecialEffect
@@ -48,7 +50,6 @@ func _ready():
 	var NewCard=Cards.instantiate()
 	CardSelected=randi_range(0, DeckSize-1)
 	$FullCard.size = Vector2(130,200)
-	print($Focus.rotation_degrees)
 
 
 
@@ -65,7 +66,8 @@ func _physics_process(delta):
 			pass
 		FocusInHand:
 			$Focus.scale = CardSize/$Focus.texture_hover.get_size()*1.5
-
+			if(NewCard.position==CardPos2.position):
+				$Focus.rotation_degrees=-90
 
 
 func _on_focus_mouse_entered():

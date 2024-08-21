@@ -5,8 +5,8 @@ extends Node2D
 @onready var CardSelected=[]
 @onready var DeckSize=PlayerHand.CardList.size()
 @onready var ViewPort=$BackGround/TableTop.size
-@onready var Card=load("res://cards.tscn").instantiate()
-@onready var Focus = Card.get_node("Focus")
+#@onready var Card=load("res://cards.tscn").instantiate()
+@onready var Focus = $CardBase/Focus
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$BackGround.scale *= (ViewPort/$BackGround.texture.get_size())*0.75
@@ -28,7 +28,7 @@ func _input(event):
 		$Cards.add_child(NewCard)
 		if(NewCard.position==$P2DownCards.position):
 			NewCard.rotation_degrees=90
-		if(NewCard.rotation_degrees==90):
+		if(NewCard.position==$P2DownCards.position):
 			Focus.rotation_degrees=-90
 		$P1DownCards.position += Vector2(130,0)
 		$P1Hand.position += Vector2(130,0)

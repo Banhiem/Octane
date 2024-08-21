@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceu24qaqx5f0s"]
+[gd_scene load_steps=4 format=3 uid="uid://ceu24qaqx5f0s"]
 
 [ext_resource type="Script" path="res://PlaySpace.gd" id="1_dpk7w"]
 [ext_resource type="Texture2D" uid="uid://y3ew2aaor30r" path="res://card_images/TableTop.jpg" id="2_k4r31"]
+[ext_resource type="PackedScene" uid="uid://dakghqwfa52tr" path="res://cards.tscn" id="3_72akr"]
 
 [node name="PlaySpace" type="Node2D"]
 script = ExtResource("1_dpk7w")
@@ -58,3 +59,6 @@ offset_top = 150.0
 offset_right = 738.0
 offset_bottom = 197.0
 metadata/_edit_lock_ = true
+
+[node name="CardBase" parent="." instance=ExtResource("3_72akr")]
+visible = false

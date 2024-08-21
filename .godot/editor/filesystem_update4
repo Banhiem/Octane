@@ -1,4 +1,5 @@
 res://cards.tscn
-res://play_space.tscn
 res://PlaySpace.gd
+res://play_space.tscn
 res://CardBase.gd
+res://card_base.tscn
