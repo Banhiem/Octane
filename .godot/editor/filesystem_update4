@@ -1,5 +1,5 @@
-res://cards.tscn
-res://CardBase.gd
-res://PlaySpace.gd
 res://play_space.tscn
+res://PlaySpace.gd
+res://cards.tscn
 res://card_base.tscn
+res://CardBase.gd

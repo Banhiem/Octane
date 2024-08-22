@@ -11,12 +11,16 @@ var Name = 'Gladiator'
 @onready var CardNum = CardInfo[1]
 @onready var CardName = Cardname[0]
 @onready var SpecialEffect = CardInfo[3]
-var CardSize= self.get_size()/3
+var CardSize= self.get_size()
 var CardScale= self.get_scale()
 @onready var Cards= load("res://cards.tscn")
 @onready var NewCard=Cards.instantiate()
 @onready var Space = load("res://play_space.tscn").instantiate()
 @onready var CardPos2=Space.get_node("P2DownCards")
+@onready var CardPos3=Space.get_node("P3DownCards")
+@onready var CardPos4=Space.get_node("P4DownCards")
+@onready var Pile=Space.get_node("CardPile")
+@onready var t=1
 
 #func CreateCard():
 	#$FullCard/Border/SpecialEffect.text=SpecialEffect
@@ -38,7 +42,7 @@ enum{           #States of indivual cards
 var state = InHand
 
 func _ready():
-	var ImgArea= $FullCard/Border/ImgArea.size*1.8
+	var ImgArea= $FullCard/Border/ImgArea.size*1.83
 	$FullCard/Border/SpecialEffect.text=SpecialEffect
 	$FullCard/Border/SpecialEffect/Card.texture=load(CardImg)
 	$FullCard/Border.scale *= CardSize/$FullCard/Border.texture.get_size()   
@@ -49,7 +53,8 @@ func _ready():
 	await get_tree().process_frame
 	CardSelected=randi_range(0, DeckSize-1)
 	$FullCard.size = Vector2(130,200)
-	NewCard.position=CardPos2.position
+	NewCard.position=CardPos4.position
+	print(Pile.position)
 
 
 
@@ -59,16 +64,33 @@ func _ready():
 func _physics_process(delta):
 	match state:
 		InHand:
-			$Focus.scale = CardSize/$Focus.texture_hover.get_size()*0.5
+			$Focus.scale = CardSize/$Focus.texture_hover.get_size()*0.75
 		InPile:
-			$Focus.scale = CardSize/$Focus.texture_hover.get_size()*0.5
+			$Focus.scale = CardSize/$Focus.texture_hover.get_size()*1.5
+			self.global_position=lerp(CardPos2.position,Pile.position,t)
+			#if (self.global_position==Pile.position):
+				#$Focus.roatation_degrees=0
+			if(NewCard.position==CardPos2.position):
+				self.rotation_degrees=0
+			if(NewCard.position==CardPos3.position):
+				self.rotation_degrees=0
+			if(NewCard.position==CardPos4.position):
+				self.rotation_degrees=0
 		OnTable:
-			pass
+			$Focus.scale = CardSize/$Focus.texture_hover.get_size()*0.75
 		FocusInHand:
 			$Focus.scale = CardSize/$Focus.texture_hover.get_size()*1.5
 			if(NewCard.position==CardPos2.position):
 				$Focus.rotation_degrees=-90
 				$Focus.position=Vector2(0,175)
+				$Focus.scale=CardSize/$Focus.texture_hover.get_size()*1.2
+			if(NewCard.position==CardPos3.position):
+				$Focus.rotation_degrees=180
+				$Focus.position=Vector2(130,200)
+				$Focus.scale=CardSize/$Focus.texture_hover.get_size()*1.2
+			if(NewCard.position==CardPos4.position):
+				$Focus.rotation_degrees=90
+				$Focus.position=Vector2(250,50)
 				$Focus.scale=CardSize/$Focus.texture_hover.get_size()*1.2
 
 
@@ -81,3 +103,10 @@ func _on_focus_mouse_exited():
 	match state:
 		FocusInHand:
 			state = InHand
+
+
+
+func _on_focus_pressed():
+	match state:
+		InHand, OnTable, FocusInHand:
+			state=InPile
