@@ -55,7 +55,6 @@ func _ready():
 	$FullCard.size = Vector2(130,200)
 	NewCard.position=self.global_position
 	NewCard.rotation_degrees=self.rotation_degrees
-	print(NewCard.rotation_degrees)
 
 
 
@@ -74,6 +73,8 @@ func _physics_process(delta):
 				$Focus.rotation_degrees=0
 				$Focus.position=Vector2(0,0)
 				self.rotation_degrees=0
+				#self.z_index += 1
+				#self.z_as_relative = false
 			if(NewCard.position==CardPos2.position):
 				self.rotation_degrees=0
 			if(NewCard.position==CardPos3.position):
@@ -83,7 +84,10 @@ func _physics_process(delta):
 		OnTable:
 			$Focus.scale = CardSize/$Focus.texture_hover.get_size()*0.75
 		FocusInHand:
-			$Focus.scale = CardSize/$Focus.texture_hover.get_size()*1.5
+			#$Focus.scale = CardSize/$Focus.texture_hover.get_size()*1.5
+			if(NewCard.rotation_degrees==0):
+				$Focus.position=Vector2(0,-75)
+				$Focus.scale = CardSize/$Focus.texture_hover.get_size()*1.5
 			if(NewCard.rotation_degrees==90):
 				$Focus.rotation_degrees=-90
 				$Focus.position=Vector2(0,175)

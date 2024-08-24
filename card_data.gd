@@ -2,7 +2,7 @@
 # Unitinfo = [Type, Attack, Retaliation, Health, Cost, Name, Melee or Ranged, Special Text]
 # Eventinfo = [Type, Cost, Effect]
 
-enum {Peasant, FootSoldier, Viking, Gladiator, Samurai, HopLite, Knight, Cavalry, Spartan, Centurion, Thief, Death, ScorchedEarth}
+enum {Peasant, FootSoldier, Viking, Gladiator, Samurai, HopLite, Shaman, Knight, Cavalry, Spartan, Centurion, Thief, Death, ScorchedEarth}
 
 const WarriorName = {
 	Peasant: 
@@ -16,7 +16,9 @@ const WarriorName = {
 	Samurai:
 		["Samurai"], 
 	HopLite:
-		["HopLite"], 
+		["HopLite"],
+	Shaman:
+		["Shaman"], 
 	Knight:
 		["Knight"], 
 	Cavalry:
@@ -46,14 +48,16 @@ const DATA = {
 		["Warrior", '5', 5,''],
 	HopLite : 
 		["Warrior", '6', 6,''],
+	Shaman :
+		["Shaman", '7', 7,'Block Magic'],
 	Knight :
-		["Warrior", '7', 7,''],
+		["Warrior", '8', 8,''],
 	Cavalry :
-		["Warrior", '8', 8, "Skip next player"],
+		["Warrior", '9', 9, "Skip next player"],
 	Spartan :
-		["Warrior", '9', 9,''],
+		["Warrior", '10', 10,''],
 	Centurion :
-		["Warrior", '10', 10, "Reverse Order"],
+		["Warrior", '11', 11, "Reverse Order"],
 	Thief:
 		["Magic", "Invisible",'',''],
 	Death:
