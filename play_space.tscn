@@ -1,20 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://ceu24qaqx5f0s"]
+[gd_scene load_steps=3 format=3 uid="uid://ceu24qaqx5f0s"]
 
 [ext_resource type="Script" path="res://PlaySpace.gd" id="1_dpk7w"]
 [ext_resource type="Texture2D" uid="uid://y3ew2aaor30r" path="res://card_images/TableTop.jpg" id="2_k4r31"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_xlhh6"]
-viewport_path = NodePath("FullCard")
 
 [node name="PlaySpace" type="Node2D"]
 script = ExtResource("1_dpk7w")
 
 [node name="Cards" type="Node" parent="."]
-
-[node name="Focus" type="TextureButton" parent="Cards"]
-z_index = 1
-texture_hover = SubResource("ViewportTexture_xlhh6")
-ignore_texture_size = true
 
 [node name="BackGround" type="Sprite2D" parent="."]
 position = Vector2(500, 100)
@@ -76,7 +68,7 @@ metadata/_edit_lock_ = true
 
 [node name="P4DownCards" type="MarginContainer" parent="."]
 offset_left = 1800.0
-offset_top = 275.0
+offset_top = 280.0
 offset_right = 1840.0
-offset_bottom = 315.0
+offset_bottom = 320.0
 metadata/_edit_lock_ = true

@@ -53,9 +53,9 @@ func _ready():
 	await get_tree().process_frame
 	CardSelected=randi_range(0, DeckSize-1)
 	$FullCard.size = Vector2(130,200)
-	NewCard.position=CardPos2.position
-	print(NewCard.size, $FullCard/CardSize.size)
-
+	NewCard.position=self.global_position
+	NewCard.rotation_degrees=self.rotation_degrees
+	print(NewCard.rotation_degrees)
 
 
 
@@ -84,15 +84,15 @@ func _physics_process(delta):
 			$Focus.scale = CardSize/$Focus.texture_hover.get_size()*0.75
 		FocusInHand:
 			$Focus.scale = CardSize/$Focus.texture_hover.get_size()*1.5
-			if(NewCard.position==CardPos2.position):
+			if(NewCard.rotation_degrees==90):
 				$Focus.rotation_degrees=-90
 				$Focus.position=Vector2(0,175)
 				$Focus.scale=CardSize/$Focus.texture_hover.get_size()*1.2
-			if(NewCard.position==CardPos3.position):
+			if(NewCard.rotation_degrees==180):
 				$Focus.rotation_degrees=180
 				$Focus.position=Vector2(130,200)
 				$Focus.scale=CardSize/$Focus.texture_hover.get_size()*1.2
-			if(NewCard.position==CardPos4.position):
+			if(NewCard.rotation_degrees==-90):
 				$Focus.rotation_degrees=90
 				$Focus.position=Vector2(250,50)
 				$Focus.scale=CardSize/$Focus.texture_hover.get_size()*1.2

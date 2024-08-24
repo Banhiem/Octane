@@ -20,24 +20,38 @@ func _ready():
 
 
 
+
+
+
 func _input(event):
 	if Input.is_action_just_pressed("spacebar"):
 		CardSelected=randi_range(0, DeckSize-1)
 		var NewCard=Cards.instantiate()
 		NewCard.Name=PlayerHand.CardList[CardSelected]
-		NewCard.position=$P2DownCards.position
+		#NewCard.position=$P1Hand.position
 		$Cards.add_child(NewCard)
-		if(NewCard.position==$P2DownCards.position):
+		PlayerHand.CardList.erase(PlayerHand.CardList[CardSelected])
+		DeckSize -= 1
+		if(DeckSize>=68):
+			NewCard.position=$P1Hand.position
+			$P1Hand.position += Vector2(130,0)
+		if(67>=DeckSize and DeckSize>=63):
+			NewCard.position=$P1DownCards.position
+			$P1DownCards.position += Vector2(130,0)
+		if(63>DeckSize and DeckSize>=58):
+			NewCard.position=$P2DownCards.position
+			$P2DownCards.position += Vector2(0,130)
 			NewCard.rotation_degrees=90
-		if(NewCard.position==$P3DownCards.position):
+		if(58>DeckSize and DeckSize>=53):
+			NewCard.position=$P3DownCards.position
+			$P3DownCards.position += Vector2(130,0)
 			NewCard.rotation_degrees=180
-		if(NewCard.position==$"P4DownCards".position):
+		if(53>DeckSize and DeckSize>=48):
+			NewCard.position=$P4DownCards.position
+			$P4DownCards.position += Vector2(0,130)
 			NewCard.rotation_degrees=-90
-		$P1DownCards.position += Vector2(130,0)
-		$P1Hand.position += Vector2(130,0)
-		$P2DownCards.position += Vector2(0,130)
-		$P3DownCards.position += Vector2(130,0) 
-		$P4DownCards.position += Vector2(0,130)
+		if(DeckSize<48):
+			NewCard.position=$CardPile.position
 
 #func _input(event):
 	#if Input.is_action_just_released("LeftMouse"):
