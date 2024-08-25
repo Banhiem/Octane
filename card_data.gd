@@ -8,7 +8,7 @@ const WarriorName = {
 	Peasant: 
 		["Peasant"],
 	BlindBarter:
-		["BlindBarter"],
+		["Blind Barter"],
 	FootSoldier:
 		["Foot Soldier"],
 	Viking:
@@ -18,7 +18,7 @@ const WarriorName = {
 	Samurai:
 		["Samurai"], 
 	HopLite:
-		["HopLite"],
+		["Hoplite"],
 	Shaman:
 		["Shaman"], 
 	Knight:
@@ -41,27 +41,27 @@ const DATA = {
 	Peasant : 
 		["Warrior", '1', 1,''],
 	BlindBarter :
-		["Warrior", '2', 2, 'Trade Cards'],
+		["Magic", 'Draw Card', '', ''],
 	FootSoldier :
-		["Warrior", '3', 3,''],
+		["Warrior", '2', 2,''],
 	Viking:
-		["Warrior", '4', 4,''],
+		["Warrior", '3', 3 ,''],
 	Gladiator :
-		["Warrior", '5', 5, "4 or Less"],
+		["Warrior", '4', 4, "4 or Less"],
 	Samurai :
-		["Warrior", '6', 6,''],
+		["Warrior", '5', 5,''],
 	HopLite : 
-		["Warrior", '7', 7,''],
+		["Warrior", '6', 6,''],
 	Shaman :
-		["Warrior", '8', 8,'Block Magic'],
+		["Warrior", '7', 7,'Block Magic'],
 	Knight :
-		["Warrior", '9', 9,''],
+		["Warrior", '8', 8,''],
 	Cavalry :
-		["Warrior", '10', 10, "Skip next player"],
+		["Warrior", '9', 9, "Skip next player"],
 	Spartan :
-		["Warrior", '11', 11,''],
+		["Warrior", '10', 10,''],
 	Centurion :
-		["Warrior", '12', 12, "Reverse Order"],
+		["Warrior", '11', 11, "Reverse Order"],
 	Thief:
 		["Magic", "Invisible",'',''],
 	Death:
