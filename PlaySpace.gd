@@ -33,25 +33,25 @@ func _input(event):
 		$Cards.add_child(NewCard)
 		PlayerHand.CardList.erase(PlayerHand.CardList[CardSelected])
 		DeckSize -= 1
-		if(DeckSize>=62):
+		if(DeckSize>=68):
 			NewCard.position=$P1Hand.position
 			$P1Hand.position += Vector2(130,0)
-		if(63>DeckSize and DeckSize>=58):
+		if(68>DeckSize and DeckSize>=63):
 			NewCard.position=$P1DownCards.position
 			$P1DownCards.position += Vector2(130,0)
-		if(58>DeckSize and DeckSize>=53):
+		if(63>DeckSize and DeckSize>=58):
 			NewCard.position=$P2DownCards.position
 			$P2DownCards.position += Vector2(0,130)
 			NewCard.rotation_degrees=90
-		if(53>DeckSize and DeckSize>=48):
+		if(58>DeckSize and DeckSize>=53):
 			NewCard.position=$P3DownCards.position
 			$P3DownCards.position += Vector2(130,0)
 			NewCard.rotation_degrees=180
-		if(48>DeckSize and DeckSize>=43):
+		if(53>DeckSize and DeckSize>=48):
 			NewCard.position=$P4DownCards.position
 			$P4DownCards.position += Vector2(0,130)
 			NewCard.rotation_degrees=-90
-		if(DeckSize<43):
+		if(DeckSize<48):
 			NewCard.position=$CardPile.position
 
 #func _input(event):
