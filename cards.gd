@@ -15,5 +15,3 @@ func _ready():
 	#$Border.scale *= CardSize/$Border.texture.get_size()   
 	
 	
-
-

@@ -11,7 +11,7 @@ var Name = 'Gladiator'
 @onready var CardNum = CardInfo[1]
 @onready var CardName = Cardname[0]
 @onready var SpecialEffect = CardInfo[3]
-var CardSize= self.get_size()
+@onready var CardSize= self.get_size()
 var CardScale= self.get_scale()
 @onready var Cards= load("res://cards.tscn")
 @onready var NewCard=Cards.instantiate()
@@ -20,29 +20,22 @@ var CardScale= self.get_scale()
 @onready var CardPos3=Space.get_node("P3DownCards")
 @onready var CardPos4=Space.get_node("P4DownCards")
 @onready var Pile=Space.get_node("CardPile")
+@onready var Discard=Space.get_node("Discard")
+@onready var P1Hand=Space.get_node("P1Hand")
+@onready var P1Down=Space.get_node("P1DownCards")
 @onready var t=1
-
-#func CreateCard():
-	#$FullCard/Border/SpecialEffect.text=SpecialEffect
-	#$FullCard/Border/SpecialEffect/Card.texture=load(CardImg)
-	#$FullCard/Border.scale *= CardSize/$FullCard/Border.texture.get_size()   
-	#$FullCard/Border/SpecialEffect/Card.scale *= (($FullCard/Border/ImgArea.size/0.83)/$FullCard/Border/SpecialEffect/Card.texture.get_size())*(CardSize/$FullCard/Border.texture.get_size())
-	#$FullCard/Border/SpecialEffect/Card.position=$FullCard/Border/ImgArea.position
-	#$FullCard/Border/CardNum.text=CardNum
-	#$FullCard/Border/CardName.text=CardName 
-	#$FullCard/Border/SpecialEffect/Card.scale *= CardSize/$Focus.texture_hover.get_size()*1.3
-
-enum{           #States of indivual cards
-	InHand,
-	InPile,                
-	OnTable,
-	FocusInHand
-}
-
-var state = InHand
+@onready var P1Cards=[]
+@onready var P1DownCards=[]
+@onready var P2DownCards=[]
+@onready var P3DownCards=[]
+@onready var P4DownCards=[]
+@onready var PileCards=[]
+@onready var BlindBarterCards=[]
+var cardBeingDragged
+@onready var screenSize = get_viewport_rect().size
 
 func _ready():
-	var ImgArea= $FullCard/Border/ImgArea.size*1.83
+	var ImgArea= $FullCard/Border/ImgArea.size*32
 	$FullCard/Border/SpecialEffect.text=SpecialEffect
 	$FullCard/Border/SpecialEffect/Card.texture=load(CardImg)
 	$FullCard/Border.scale *= CardSize/$FullCard/Border.texture.get_size()   
@@ -55,24 +48,31 @@ func _ready():
 	$FullCard.size = Vector2(130,200)
 	NewCard.position=self.global_position
 	NewCard.rotation_degrees=self.rotation_degrees
-
-
+	#if(self.global_position==P1Hand.position):
+	#P1Cards.push_front(PlayerHand.CardList[CardSelected])
+	print(self.global_position)
 
 
 
 func _physics_process(delta):
+	if cardBeingDragged:
+		var mousePosition = get_global_mouse_position()
+		cardBeingDragged.position = Vector2(clamp(mousePosition.x, 0, 1152), clamp(mousePosition.y, 0, 648))
 	match state:
 		InHand:
 			$Focus.scale = CardSize/$Focus.texture_hover.get_size()*0.75
 		InPile:
 			$Focus.scale = CardSize/$Focus.texture_hover.get_size()*1.2
 			$Focus.rotation_degrees=0
-			self.global_position=lerp(CardPos2.position,Pile.position,t)
-			if (self.global_position==Pile.position):
+			self.global_position=lerp(self.global_position,Pile.position,t)
+			self.rotation_degrees=0
+			if (NewCard.position==Pile.position):
 				NewCard.position=Pile.position
 				$Focus.rotation_degrees=0
 				$Focus.position=Vector2(0,0)
 				self.rotation_degrees=0
+				PileCards.push_back(NewCard.Name)
+				#NewCard.move_child(NewCard,0)
 				#self.z_index += 1
 				#self.z_as_relative = false
 			if(NewCard.position==CardPos2.position):
@@ -81,13 +81,25 @@ func _physics_process(delta):
 				self.rotation_degrees=0
 			if(NewCard.position==CardPos4.position):
 				self.rotation_degrees=0
+			if (NewCard.position.y==1050):
+				P1Cards.push_front(NewCard.Name)
+			if (NewCard.position.y==850):
+				P1DownCards.push_front(NewCard.Name)
+			if (NewCard.position.x==600):
+				P2DownCards.push_front(NewCard.Name)
+			if (NewCard.position.y==300):
+				P3DownCards.push_front(NewCard.Name)
+			if (NewCard.position.x==1900):
+				P4DownCards.push_front(NewCard.Name)
+			#if (NewCard.position==Vector2(500,500)):
+				#PileCards.push_front(NewCard.Name)
 		OnTable:
 			$Focus.scale = CardSize/$Focus.texture_hover.get_size()*0.75
 		FocusInHand:
 			#$Focus.scale = CardSize/$Focus.texture_hover.get_size()*1.5
 			if(NewCard.rotation_degrees==0):
 				$Focus.position=Vector2(0,-75)
-				$Focus.scale = CardSize/$Focus.texture_hover.get_size()*1.5
+				$Focus.scale = CardSize/$Focus.texture_hover.get_size()*2
 			if(NewCard.rotation_degrees==90):
 				$Focus.rotation_degrees=-90
 				$Focus.position=Vector2(0,175)
@@ -100,6 +112,49 @@ func _physics_process(delta):
 				$Focus.rotation_degrees=90
 				$Focus.position=Vector2(250,50)
 				$Focus.scale=CardSize/$Focus.texture_hover.get_size()*1.2
+
+#func CreateCard():
+	#$FullCard/Border/SpecialEffect.text=SpecialEffect
+	#$FullCard/Border/SpecialEffect/Card.texture=load(CardImg)
+	#$FullCard/Border.scale *= CardSize/$FullCard/Border.texture.get_size()   
+	#$FullCard/Border/SpecialEffect/Card.scale *= (($FullCard/Border/ImgArea.size/0.83)/$FullCard/Border/SpecialEffect/Card.texture.get_size())*(CardSize/$FullCard/Border.texture.get_size())
+	#$FullCard/Border/SpecialEffect/Card.position=$FullCard/Border/ImgArea.position
+	#$FullCard/Border/CardNum.text=CardNum
+	#$FullCard/Border/CardName.text=CardName 
+	#$FullCard/Border/SpecialEffect/Card.scale *= CardSize/$Focus.texture_hover.get_size()*1.3
+
+func _input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			var card = checkForCard()
+			if card:
+				cardBeingDragged = card
+		else:
+			cardBeingDragged = null
+		#check for card
+		
+
+func checkForCard():
+	var space_state = get_world_2d().direct_space_state
+	var parameters = PhysicsPointQueryParameters2D.new()
+	parameters.position = get_global_mouse_position()
+	parameters.collide_with_areas = true
+	parameters.collision_mask = 1
+	var result = space_state.intersect_point(parameters)
+	if result.size() > 0:
+		return result[0].collider.get_parent()
+	return null
+
+enum{           #States of indivual cards
+	InHand,
+	InPile,                
+	OnTable,
+	FocusInHand
+}
+
+var state = InHand
+
+
 
 
 func _on_focus_mouse_entered():

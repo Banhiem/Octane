@@ -72,3 +72,10 @@ offset_top = 380.0
 offset_right = 1940.0
 offset_bottom = 420.0
 metadata/_edit_lock_ = true
+
+[node name="Discard" type="MarginContainer" parent="."]
+offset_left = 1900.0
+offset_top = 1050.0
+offset_right = 1940.0
+offset_bottom = 1090.0
+metadata/_edit_lock_ = true
