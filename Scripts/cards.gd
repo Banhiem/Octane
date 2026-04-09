@@ -2,7 +2,7 @@ extends MarginContainer
 
 
 
-var CardData = preload("res://card_data.tscn") 
+var CardData = preload("res://Scenes/card_data.tscn") 
 var Cardname = 'Footman'
 var CardInfo = CardData.get(Cardname)
 

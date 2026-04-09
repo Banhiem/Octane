@@ -1,12 +1,12 @@
 extends Node2D
 
 @onready var PlayerHand = load("res://Scripts/Label.gd")
-@onready var Cards = load("res://cards.tscn")
+@onready var Cards = load("res://Scenes/cards.tscn")
 @onready var NewCard = Cards.instantiate()
 @onready var CardSelected = []
 @onready var DeckSize = PlayerHand.CardList.size()
 @onready var ViewPort = $BackGround/TableTop.size
-@onready var Card = load("res://cards.tscn").instantiate()
+@onready var Card = load("res://Scenes/cards.tscn").instantiate()
 @onready var Focus = Card.get_node("Focus")
 @onready var t = 1
 @onready var P1Cards = []
