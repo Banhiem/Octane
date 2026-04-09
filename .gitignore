@@ -27,3 +27,5 @@ obj/
 
 # VS Code specific settings
 .vscode/
+*.uid
+*.import
