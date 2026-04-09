@@ -1,3 +1,29 @@
-/.godot
-.vscode/launch.json
-.vscode/settings.json
+# Godot editor folder (cache, editor state)
+.godot/
+
+# Imported assets (re-imported automatically)
+.import/
+*.import
+
+# Editor backups / temporary files
+*.tscn~ 
+*.cfg~
+*.tmp
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Optional: Godot export templates (if accidentally copied)
+*.pck
+*.exe
+*.apk
+
+# Optional: ignore compiled binaries/scripts if you use GDScript C# / Mono
+*.mono/
+bin/
+obj/
+
+# VS Code specific settings
+.vscode/
