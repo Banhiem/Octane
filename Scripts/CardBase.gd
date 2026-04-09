@@ -1,7 +1,7 @@
 extends MarginContainer
 
-@onready var CardData = load("res://card_data.gd")
-@onready var PlayerHand = load("res://Label.gd")
+@onready var CardData = load("res://Scripts/card_data.gd")
+@onready var PlayerHand = load("res://Scripts/Label.gd")
 @onready var DeckSize = PlayerHand.CardList.size()
 var Name = 'Gladiator'
 @onready var CardInfo = CardData.DATA[CardData.get(Name)]

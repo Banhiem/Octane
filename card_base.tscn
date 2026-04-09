@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bg5c2y60iqam5"]
 
-[ext_resource type="Script" uid="uid://11lfixrc5c8x" path="res://CardBase.gd" id="1_cmt7v"]
+[ext_resource type="Script" uid="uid://4w21mug32wi4" path="res://Scripts/CardBase.gd" id="1_cmt7v"]
+
 
 
 [node name="CardBase" type="Node2D"]

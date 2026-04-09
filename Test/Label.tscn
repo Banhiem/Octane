@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cmfc8nbdpbymc"]
 
-[ext_resource type="Script" uid="uid://c06fnohtb6w1" path="res://Label.gd" id="1_c6tw5"]
+[ext_resource type="Script" uid="uid://ci2t04kogabrp" path="res://Scripts/Label.gd" id="1_c6tw5"]
+
 
 
 [node name="Node2D" type="Node2D"]

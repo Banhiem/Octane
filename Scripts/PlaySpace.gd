@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var PlayerHand = load("res://Label.gd")
+@onready var PlayerHand = load("res://Scripts/Label.gd")
 @onready var Cards = load("res://cards.tscn")
 @onready var NewCard = Cards.instantiate()
 @onready var CardSelected = []

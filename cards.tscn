@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://dakghqwfa52tr"]
 
-[ext_resource type="Script" uid="uid://11lfixrc5c8x" path="res://CardBase.gd" id="1_jv2kh"]
-[ext_resource type="Texture2D" uid="uid://beoqrby7neof1" path="res://card_images/BorderArch1.png" id="2_31o65"]
+[ext_resource type="Script" uid="uid://4w21mug32wi4" path="res://Scripts/CardBase.gd" id="1_jv2kh"]
+[ext_resource type="Texture2D" uid="uid://h62b8enkay5n" path="res://card_images/BorderArch1.png" id="2_31o65"]
 [ext_resource type="Texture2D" uid="uid://bvylcog2t2hif" path="res://card_images/Thief.jpg" id="3_w4vna"]
+
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_muckv"]
 viewport_path = NodePath("FullCard")
