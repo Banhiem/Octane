@@ -1,20 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceu24qaqx5f0s"]
+[gd_scene format=3 uid="uid://ceu24qaqx5f0s"]
 
-[ext_resource type="Script" path="res://PlaySpace.gd" id="1_dpk7w"]
+[ext_resource type="Script" uid="uid://bjskx18x7iiq6" path="res://PlaySpace.gd" id="1_dpk7w"]
 [ext_resource type="Texture2D" uid="uid://b3nah56fw5j7e" path="res://card_images/BattleArena1.jpg" id="2_kblv5"]
 
-[node name="PlaySpace" type="Node2D"]
+[node name="PlaySpace" type="Node2D" unique_id=672102897]
 script = ExtResource("1_dpk7w")
 
-[node name="Cards" type="Node" parent="."]
+[node name="Cards" type="Node" parent="." unique_id=1897824535]
 
-[node name="BackGround" type="Sprite2D" parent="."]
+[node name="BackGround" type="Sprite2D" parent="." unique_id=1423879205]
 position = Vector2(500, 200)
 texture = ExtResource("2_kblv5")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="TableTop" type="MarginContainer" parent="BackGround"]
+[node name="TableTop" type="MarginContainer" parent="BackGround" unique_id=376434945]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -29,7 +29,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
-[node name="CardPile" type="MarginContainer" parent="."]
+[node name="CardPile" type="MarginContainer" parent="." unique_id=1454725702]
 offset_left = 1180.0
 offset_top = 475.0
 offset_right = 1220.0
@@ -38,42 +38,42 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 metadata/_edit_lock_ = true
 
-[node name="P1DownCards" type="MarginContainer" parent="."]
+[node name="P1DownCards" type="MarginContainer" parent="." unique_id=1450803638]
 offset_left = 925.0
 offset_top = 850.0
 offset_right = 965.0
 offset_bottom = 890.0
 metadata/_edit_lock_ = true
 
-[node name="P1Hand" type="MarginContainer" parent="."]
+[node name="P1Hand" type="MarginContainer" parent="." unique_id=62696446]
 offset_left = 925.0
 offset_top = 1050.0
 offset_right = 965.0
 offset_bottom = 1090.0
 metadata/_edit_lock_ = true
 
-[node name="P2DownCards" type="MarginContainer" parent="."]
+[node name="P2DownCards" type="MarginContainer" parent="." unique_id=1076899236]
 offset_left = 600.0
 offset_top = 250.0
 offset_right = 638.0
 offset_bottom = 297.0
 metadata/_edit_lock_ = true
 
-[node name="P3DownCards" type="MarginContainer" parent="."]
+[node name="P3DownCards" type="MarginContainer" parent="." unique_id=972195347]
 offset_left = 1050.0
 offset_top = 300.0
 offset_right = 1082.0
 offset_bottom = 330.0
 metadata/_edit_lock_ = true
 
-[node name="P4DownCards" type="MarginContainer" parent="."]
+[node name="P4DownCards" type="MarginContainer" parent="." unique_id=1271318252]
 offset_left = 1900.0
 offset_top = 380.0
 offset_right = 1940.0
 offset_bottom = 420.0
 metadata/_edit_lock_ = true
 
-[node name="Discard" type="MarginContainer" parent="."]
+[node name="Discard" type="MarginContainer" parent="." unique_id=517134510]
 offset_left = 1900.0
 offset_top = 1050.0
 offset_right = 1940.0
