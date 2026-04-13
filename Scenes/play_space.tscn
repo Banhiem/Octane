@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://ceu24qaqx5f0s"]
 
-[ext_resource type="Script" uid="uid://c1fc2qxi6x0dw" path="res://Scripts/PlaySpace.gd" id="1_dpk7w"]
-[ext_resource type="Texture2D" uid="uid://b3nah56fw5j7e" path="res://card_images/BattleArena1.jpg" id="2_kblv5"]
-
+[ext_resource type="Script" uid="uid://bya1nvucg686t" path="res://Scripts/PlaySpace.gd" id="1_dpk7w"]
+[ext_resource type="Texture2D" uid="uid://cdnw42iligw2t" path="res://card_images/BattleArena1.jpg" id="2_kblv5"]
 
 [node name="PlaySpace" type="Node2D" unique_id=672102897]
 script = ExtResource("1_dpk7w")
