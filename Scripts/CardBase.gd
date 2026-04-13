@@ -47,10 +47,6 @@ func _ready():
 	$FullCard.size = Vector2(130, 200)
 	NewCard.position = self.global_position
 	NewCard.rotation_degrees = self.rotation_degrees
-	#if(self.global_position==P1Hand.position):
-	#P1Cards.push_front(PlayerHand.CardList[CardSelected])
-	# print(self.global_position)
-
 
 func _physics_process(delta):
 	if cardBeingDragged:
@@ -61,28 +57,21 @@ func _physics_process(delta):
 			clamp(mousePosition.x, 0, viewport_size.x - card_size.x),
 			clamp(mousePosition.y, 0, viewport_size.y - card_size.y)
 		)
-		# print("CardBeingDragged: " + cardBeingDragged)
 
-	# print(cardBeingDragged)
 	match state:
 		InHand:
 			$Focus.scale = CardSize / $Focus.texture_hover.get_size() * 0.75
+
 		InPile:
 			$Focus.scale = CardSize / $Focus.texture_hover.get_size() * 1.2
 			$Focus.rotation_degrees = 0
 			self.rotation_degrees = 0
-			# print("NewCard: "  NewCard)
-			# print(cardBeingDragged)
 			if (self.global_position == Pile.position):
 				NewCard.position = Pile.position
-				print("NewCard.position==Pile.position")
 				$Focus.rotation_degrees = 0
 				$Focus.position = Vector2(0, 0)
 				self.rotation_degrees = 0
 				PileCards.push_back(NewCard.Name)
-				#NewCard.move_child(NewCard,0)
-				#self.z_index += 1
-				#self.z_as_relative = false
 			if (NewCard.position == CardPos2.position):
 				self.rotation_degrees = 0
 			if (NewCard.position == CardPos3.position):
@@ -99,12 +88,11 @@ func _physics_process(delta):
 				P3DownCards.push_front(NewCard.Name)
 			if (NewCard.position.x == 1900):
 				P4DownCards.push_front(NewCard.Name)
-			#if (NewCard.position==Vector2(500,500)):
-			#PileCards.push_front(NewCard.Name)
+
 		OnTable:
 			$Focus.scale = CardSize / $Focus.texture_hover.get_size() * 0.75
+
 		FocusInHand:
-			#$Focus.scale = CardSize/$Focus.texture_hover.get_size()*1.5
 			if (NewCard.rotation_degrees == 0):
 				$Focus.position = Vector2(0, -75)
 				$Focus.scale = CardSize / $Focus.texture_hover.get_size() * 2
@@ -121,17 +109,6 @@ func _physics_process(delta):
 				$Focus.position = Vector2(250, 50)
 				$Focus.scale = CardSize / $Focus.texture_hover.get_size() * 1.2
 
-	#func CreateCard():
-	#$FullCard/Border/SpecialEffect.text=SpecialEffect
-	#$FullCard/Border/SpecialEffect/Card.texture=load(CardImg)
-	#$FullCard/Border.scale *= CardSize/$FullCard/Border.texture.get_size()   
-	#$FullCard/Border/SpecialEffect/Card.scale *= (($FullCard/Border/ImgArea.size/0.83)/$FullCard/Border/SpecialEffect/Card.texture.get_size())*(CardSize/$FullCard/Border.texture.get_size())
-	#$FullCard/Border/SpecialEffect/Card.position=$FullCard/Border/ImgArea.position
-	#$FullCard/Border/CardNum.text=CardNum
-	#$FullCard/Border/CardName.text=CardName 
-	#$FullCard/Border/SpecialEffect/Card.scale *= CardSize/$Focus.texture_hover.get_size()*1.3
-
-
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
@@ -140,8 +117,6 @@ func _input(event):
 				cardBeingDragged = card
 		else:
 			cardBeingDragged = null
-		#check for card
-
 
 func checkForCard():
 	var space_state = get_world_2d().direct_space_state
@@ -182,3 +157,4 @@ func _on_focus_pressed():
 	match state:
 		InHand, OnTable, FocusInHand:
 			state = InPile
+			NewCard.position = Pile.position
