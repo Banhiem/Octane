@@ -18,7 +18,7 @@ var PileCards = []
 var t = 1
 
 # --- Runtime nodes ---
-var new_card
+var NewCard
 var card
 
 # Called when the node enters the scene tree for the first time.
@@ -28,17 +28,17 @@ func _ready():
 	$BackGround/TableTop.position = $BackGround.position
 	DeckSize = Deck.CardList.size()
 
-
 func _input(event):
 	if Input.is_action_just_pressed("spacebar"):
 		CardSelected = randi_range(0, DeckSize - 1)
-		var NewCard = CardTemplate.instantiate()
+		NewCard = CardTemplate.instantiate()
 		NewCard.Name = Deck.CardList[CardSelected]
 
 		$Cards.add_child(NewCard)
 		$Cards.move_child(NewCard, 0)
 
 		Deck.CardList.erase(Deck.CardList[CardSelected])
+
 		DeckSize -= 1
 		if (DeckSize >= 68):
 			NewCard.position = $P1Hand.position
