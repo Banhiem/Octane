@@ -1,9 +1,17 @@
 extends MarginContainer
 
+# --- Loading Scenes ---
+@onready var Space = load("res://Scenes/play_space.tscn").instantiate()
+@onready var Cards = load("res://Scenes/cards.tscn")
+
+# --- Loading Scripts ---
 @onready var CardData = load("res://Scripts/card_data.gd")
 @onready var PlayerHand = load("res://Scripts/Label.gd")
-@onready var DeckSize = PlayerHand.CardList.size()
+
+# --- Runtime Scripts ---
 var Name = 'Gladiator'
+var CardScale = self.get_scale()
+@onready var DeckSize = PlayerHand.CardList.size()
 @onready var CardInfo = CardData.DATA[CardData.get(Name)]
 @onready var Cardname = CardData.WarriorName[CardData.get(Name)]
 @onready var CardImg = str("res://card_images/", Name, ".jpg")
@@ -11,10 +19,6 @@ var Name = 'Gladiator'
 @onready var CardName = Cardname[0]
 @onready var SpecialEffect = CardInfo[3]
 @onready var CardSize = self.get_size()
-var CardScale = self.get_scale()
-@onready var Cards = load("res://Scenes/cards.tscn")
-@onready var NewCard = Cards.instantiate()
-@onready var Space = load("res://Scenes/play_space.tscn").instantiate()
 @onready var CardPos2 = Space.get_node("P2DownCards")
 @onready var CardPos3 = Space.get_node("P3DownCards")
 @onready var CardPos4 = Space.get_node("P4DownCards")
@@ -45,8 +49,8 @@ func _ready():
 	$FullCard/Border/CardName.text = CardName
 	await get_tree().process_frame
 	$FullCard.size = Vector2(130, 200)
-	NewCard.position = self.global_position
-	NewCard.rotation_degrees = self.rotation_degrees
+	self.position = self.global_position
+	self.rotation_degrees = self.rotation_degrees
 
 func _physics_process(delta):
 	if cardBeingDragged:
@@ -67,44 +71,44 @@ func _physics_process(delta):
 			$Focus.rotation_degrees = 0
 			self.rotation_degrees = 0
 			if (self.global_position == Pile.position):
-				NewCard.position = Pile.position
+				self.position = Pile.position
 				$Focus.rotation_degrees = 0
 				$Focus.position = Vector2(0, 0)
 				self.rotation_degrees = 0
-				PileCards.push_back(NewCard.Name)
-			if (NewCard.position == CardPos2.position):
+				PileCards.push_back(self.Name)
+			if (self.position == CardPos2.position):
 				self.rotation_degrees = 0
-			if (NewCard.position == CardPos3.position):
+			if (self.position == CardPos3.position):
 				self.rotation_degrees = 0
-			if (NewCard.position == CardPos4.position):
+			if (self.position == CardPos4.position):
 				self.rotation_degrees = 0
-			if (NewCard.position.y == 1050):
-				P1Cards.push_front(NewCard.Name)
-			if (NewCard.position.y == 850):
-				P1DownCards.push_front(NewCard.Name)
-			if (NewCard.position.x == 600):
-				P2DownCards.push_front(NewCard.Name)
-			if (NewCard.position.y == 300):
-				P3DownCards.push_front(NewCard.Name)
-			if (NewCard.position.x == 1900):
-				P4DownCards.push_front(NewCard.Name)
+			if (self.position.y == 1050):
+				P1Cards.push_front(self.Name)
+			if (self.position.y == 850):
+				P1DownCards.push_front(self.Name)
+			if (self.position.x == 600):
+				P2DownCards.push_front(self.Name)
+			if (self.position.y == 300):
+				P3DownCards.push_front(self.Name)
+			if (self.position.x == 1900):
+				P4DownCards.push_front(self.Name)
 
 		OnTable:
 			$Focus.scale = CardSize / $Focus.texture_hover.get_size() * 0.75
 
 		FocusInHand:
-			if (NewCard.rotation_degrees == 0):
+			if (self.rotation_degrees == 0):
 				$Focus.position = Vector2(0, -75)
 				$Focus.scale = CardSize / $Focus.texture_hover.get_size() * 2
-			if (NewCard.rotation_degrees == 90):
+			if (self.rotation_degrees == 90):
 				$Focus.rotation_degrees = -90
 				$Focus.position = Vector2(0, 175)
 				$Focus.scale = CardSize / $Focus.texture_hover.get_size() * 1.2
-			if (NewCard.rotation_degrees == 180):
+			if (self.rotation_degrees == 180):
 				$Focus.rotation_degrees = 180
 				$Focus.position = Vector2(130, 200)
 				$Focus.scale = CardSize / $Focus.texture_hover.get_size() * 1.2
-			if (NewCard.rotation_degrees == -90):
+			if (self.rotation_degrees == -90):
 				$Focus.rotation_degrees = 90
 				$Focus.position = Vector2(250, 50)
 				$Focus.scale = CardSize / $Focus.texture_hover.get_size() * 1.2
@@ -157,4 +161,4 @@ func _on_focus_pressed():
 	match state:
 		InHand, OnTable, FocusInHand:
 			state = InPile
-			NewCard.position = Pile.position
+			self.position = Pile.position
